@@ -88,6 +88,18 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@tabler/icons-react@^3.29.0":
+  version "3.29.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-react/-/icons-react-3.29.0.tgz#5853e1a8318c7ecfffbb6c38a3b1b17862855dba"
+  integrity sha512-jaa3b3j91CplY7TPgx/Gj/e+PcOnQgYiK6c5qtp1P0ytfKM5WPc1qtXyRLE3NcYlfxS2Pcst4YGy1vUML7SjbQ==
+  dependencies:
+    "@tabler/icons" "3.29.0"
+
+"@tabler/icons@3.29.0":
+  version "3.29.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-3.29.0.tgz#f78d0bb098641088ccfe3e727fc296502eb8a930"
+  integrity sha512-VWNINymdmhay3MDvWVREmRwuWLSrX3YiInKvs5L4AHRF4bAfJabLlEReE0BW/XFsBt22ff8/C8Eam/LXlF97mA==
+
 braces@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/braces/-/braces-3.0.3.tgz#490332f40919452272d55a8480adc0c441358789"

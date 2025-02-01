@@ -3,6 +3,7 @@
     "@mantine/carousel": "^7.16.2",
     "@mantine/core": "^7.16.2",
     "@mantine/hooks": "^7.16.2",
+    "@tabler/icons-react": "^3.29.0",
     "embla-carousel-react": "^7.1.0"
   },
   "devDependencies": {
