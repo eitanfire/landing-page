@@ -1,7 +1,7 @@
 import { Anchor, Card, Center, Container, Grid, Group, Image, Paper, Text, Title, useMantineColorScheme } from '@mantine/core';
 import picture from '../../assets/efire Background Removed.png';
+import EmailContact from '../EmailContact';
 import classes from './Welcome.module.css';
-
 
 export function LandingPage() {
   const { colorScheme } = useMantineColorScheme();
@@ -49,6 +49,7 @@ export function LandingPage() {
                           Eitan Fire
                         </Title>
                         <Text>builder + teacher</Text>
+                        <EmailContact />
                         <Group justify="left" gap="md">
                           <Anchor
                             href="https://github.com/eitanfire"
