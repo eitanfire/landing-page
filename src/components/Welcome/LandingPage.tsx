@@ -10,7 +10,7 @@ export function LandingPage() {
     <div
       style={{
         backgroundColor: colorScheme === 'dark' ? '#1A1B1E' : '#f0f0f0',
-        minHeight: '100vh',
+        minHeight: '90vh',
         padding: '2rem 0',
       }}
     >
@@ -21,13 +21,14 @@ export function LandingPage() {
               <Card
                 padding="xl"
                 radius="md"
-                mt="50%"
+                pl='0'
+                mt="40%"
                 withBorder
                 style={{
                   backgroundColor: colorScheme === 'dark' ? '#25262B' : 'white',
                 }}
               >
-                <Grid gutter="md" align="center">
+                <Grid gutter="lg" align="center">
                   <Grid.Col span={6}>
                     <Center>
                       <Image
