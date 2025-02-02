@@ -1,18 +1,7 @@
-import {
-  Anchor,
-  Card,
-  Center,
-  Container,
-  Grid,
-  Group,
-  Image,
-  Paper,
-  Text,
-  Title,
-  useMantineColorScheme,
-} from '@mantine/core';
+import { Anchor, Card, Center, Container, Grid, Group, Image, Paper, Text, Title, useMantineColorScheme } from '@mantine/core';
 import picture from '../../assets/efire Background Removed.png';
 import classes from './Welcome.module.css';
+
 
 export function LandingPage() {
   const { colorScheme } = useMantineColorScheme();
@@ -47,7 +36,7 @@ export function LandingPage() {
                         radius="90%"
                         height={110}
                         style={{
-                          backgroundColor: colorScheme === 'dark' ? '#25262B' : '#f0f0f0',
+                          backgroundColor: colorScheme === 'dark' ? '#ccfcf4' : ' #f2f2f2',
                         }}
                       />
                     </Center>
