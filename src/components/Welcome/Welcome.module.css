@@ -5,6 +5,6 @@
   letter-spacing: rem(-2px);
 
   @media (max-width: $mantine-breakpoint-md) {
-    font-size: rem(70px);
+    font-size: rem(0px);
   }
 }
