@@ -36,11 +36,15 @@ export function LandingPage() {
                         src={picture}
                         className="picture"
                         radius="90%"
-                        height={'auto'}
-                        style={{
-                          maxWidth: '70%',
-                          minWidth: '65%',
-                          backgroundColor: colorScheme === 'dark' ? '#ccfcf4' : ' #f2f2f2',
+                        fit="contain"
+                        w="70%"
+                        styles={{
+                          root: {
+                            backgroundColor: colorScheme === 'dark' ? '#ccfcf4' : '#f2f2f2',
+                          },
+                          imageWrapper: {
+                            aspectRatio: '1',
+                          },
                         }}
                       />
                     </Center>
@@ -50,47 +54,48 @@ export function LandingPage() {
                       <div style={{ width: '100%' }}>
                         <Title
                           ta="left"
-                          size="30"
+                          size="3dvw"
                           mb="xs"
-                      sx={(theme) => ({
-    fontSize: '4.5vw', // Default
-    [`@media (max-width: ${theme.breakpoints.md}px)`]: {
-      fontSize: '3.5vw', // Medium screens
-    },
-    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
-      fontSize: '2.5vw', // Small screens
-    },
-  })}
-  style={{
-    color: colorScheme === 'dark' ? 'pink' : 'black',
-  }}
+                          style={{
+                            color: colorScheme === 'dark' ? 'pink' : 'black',
+                          }}
                         >
                           Eitan Fire
                         </Title>
                         <Text>builder + teacher</Text>
                         <EmailContact />
-                        <Group justify="left" gap="md">
-                          <Anchor
-                            href="https://github.com/eitanfire"
-                            target="_blank"
-                            underline="hover"
-                          >
-                            GitHub
-                          </Anchor>
-                          <Anchor
-                            href="https://www.linkedin.com/in/eitanfire/"
-                            target="_blank"
-                            underline="hover"
-                          >
-                            LinkedIn
-                          </Anchor>
-                          <Anchor
-                            href="https://portfolio.eitans.website/"
-                            target="_blank"
-                            underline="hover"
-                          >
-                            Portfolio
-                          </Anchor>
+                        <Group
+                          justify="left"
+                          gap="md"
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            '@media (max-width: 48em)': {
+                              flexDirection: 'column',
+                              alignItems: 'flex-start',
+                            },
+                          }}
+                        >
+                          {[
+                            { href: 'https://github.com/eitanfire', label: 'GitHub' },
+                            { href: 'https://www.linkedin.com/in/eitanfire/', label: 'LinkedIn' },
+                            { href: 'https://projects.eitans.website/', label: 'Projects' },
+                          ].map((link) => (
+                            <Anchor
+                              key={link.href}
+                              href={link.href}
+                              target="_blank"
+                              underline="hover"
+                              style={{
+                                '@media (max-width: 48em)': {
+                                  width: '100%',
+                                  marginBottom: '0.5rem',
+                                },
+                              }}
+                            >
+                              {link.label}
+                            </Anchor>
+                          ))}
                         </Group>
                       </div>
                     </Center>
