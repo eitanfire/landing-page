@@ -42,9 +42,6 @@ export function LandingPage() {
                           root: {
                             backgroundColor: colorScheme === 'dark' ? '#ccfcf4' : '#f2f2f2',
                           },
-                          imageWrapper: {
-                            aspectRatio: '1',
-                          },
                         }}
                       />
                     </Center>
