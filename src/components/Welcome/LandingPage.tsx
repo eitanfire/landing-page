@@ -34,17 +34,18 @@ export function LandingPage() {
 
     return matches;
   }
-
+  const isSmallScreen = useMediaQuery("(max-width: 576px)");
   const isLargeScreen = useMediaQuery("(min-width: 768px)");
 
   return (
     <div
       style={{
         backgroundColor: colorScheme === "dark" ? "#1A1B1E" : "#f0f0f0",
-        minHeight: "100dvh",
+        minHeight: isSmallScreen ? "80dvh" : isLargeScreen ? "60dvh" : "80dvh",
         padding: "1rem",
         display: "flex",
         alignItems: "center",
+        overflow: "hidden",
       }}
     >
       <Container size="md" style={{ width: "100%" }}>
