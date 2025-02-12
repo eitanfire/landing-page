@@ -1,26 +1,41 @@
-import React, { useState } from 'react';
-import { Anchor } from '@mantine/core';
+import { Group, Anchor, CopyButton, Tooltip, ActionIcon } from "@mantine/core";
+import { Copy } from "lucide-react";
 
-const EmailContact: React.FC = () => {
-  const handleCopyClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
+interface EmailContactProps {
+  email?: string;
+}
 
-    const emailInput = document.getElementById('emailInput');
-    const email = emailInput?.textContent?.trim();
-
-    if (email) {
-      navigator.clipboard.writeText(email);
-      localStorage.setItem('copiedEmail', email);
-      alert('Email address copied!');
-    }
-  };
-
+const EmailContact = ({
+  email = "eitan@eitans.website",
+}: EmailContactProps) => {
   return (
-    <div id="emailInput">
-      <Anchor href="#" onClick={handleCopyClick}>
-        eitan@eitans.website
+    <Group gap={4} align="center">
+      <Anchor
+        href={`mailto:${email}`}
+        style={(theme) => ({
+          color: theme.colors.blue[6],
+          textDecoration: "none",
+          "&:hover": {
+            textDecoration: "underline",
+          },
+        })}
+      >
+        {email}
       </Anchor>
-    </div>
+      <CopyButton value={email} timeout={2000}>
+        {({ copied, copy }) => (
+          <Tooltip label={copied ? "Copied!" : "Copy"}>
+            <ActionIcon
+              color={copied ? "teal" : "gray"}
+              variant="subtle"
+              onClick={copy}
+            >
+              <Copy size={16} />
+            </ActionIcon>
+          </Tooltip>
+        )}
+      </CopyButton>
+    </Group>
   );
 };
 
