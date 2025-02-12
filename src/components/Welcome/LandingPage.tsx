@@ -88,18 +88,18 @@ export function LandingPage() {
                       <Title
                         ta={{ base: "center", sm: "left" }}
                         size="2.5rem"
-                        mb="xs"
                         style={{
                           color: colorScheme === "dark" ? "pink" : "black",
                         }}
                       >
                         Eitan Fire
                       </Title>
-                      <Text size="lg" ta={{ base: "center", sm: "left" }}>
+                      <Text size="xl" ta={{ base: "center", sm: "left" }}>
                         builder + teacher
                       </Text>
                       <div
                         style={{
+                          
                           display: "flex",
                           justifyContent: isLargeScreen
                             ? "flex-start"
@@ -138,7 +138,7 @@ export function LandingPage() {
                             href={link.href}
                             target="_blank"
                             underline="hover"
-                            size="sm"
+                            size="lg"
                           >
                             {link.label}
                           </Anchor>

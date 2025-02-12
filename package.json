@@ -6,13 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@mantine/core": "^7.5.1",
     "@mantine/hooks": "^7.5.1",
     "@mantine/notifications": "^7.16.3",
     "@tabler/icons-react": "^3.30.0",
+    "firebase": "^11.3.1",
     "lucide-react": "^0.474.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

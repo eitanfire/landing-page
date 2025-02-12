@@ -10,16 +10,7 @@ const EmailContact = ({
 }: EmailContactProps) => {
   return (
     <Group gap={4} align="center">
-      <Anchor
-        href={`mailto:${email}`}
-        style={(theme) => ({
-          color: theme.colors.blue[6],
-          textDecoration: "none",
-          "&:hover": {
-            textDecoration: "underline",
-          },
-        })}
-      >
+      <Anchor href={`mailto:${email}`} underline="hover" size="lg">
         {email}
       </Anchor>
       <CopyButton value={email} timeout={2000}>
@@ -30,7 +21,7 @@ const EmailContact = ({
               variant="subtle"
               onClick={copy}
             >
-              <Copy size={16} />
+              <Copy size={18} />
             </ActionIcon>
           </Tooltip>
         )}
