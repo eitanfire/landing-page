@@ -1,6 +1,6 @@
 import { useMantineColorScheme, Flex } from "@mantine/core";
 import { ColorSchemeToggle } from "../components/ColorSchemeToggle/ColorSchemeToggle";
-import { LandingPage } from "../components/Welcome/LandingPage";
+import { LandingPage } from "../components/Landing Page/LandingPage";
 import { QRCodeToggle } from "../components/QRCodeToggle";
 
 export function HomePage() {

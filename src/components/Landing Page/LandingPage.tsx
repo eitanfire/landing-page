@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import picture from "../../assets/efire Background Removed.png";
 import EmailContact from "../EmailContact";
-import classes from "./Welcome.module.css";
+import classes from "./Landing-Page.module.css";
 
 export function LandingPage() {
   const { colorScheme } = useMantineColorScheme();
