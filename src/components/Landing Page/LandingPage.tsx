@@ -95,11 +95,10 @@ export function LandingPage() {
                         Eitan Fire
                       </Title>
                       <Text size="xl" ta={{ base: "center", sm: "left" }}>
-                        builder + teacher
+                        software engineer + teacher
                       </Text>
                       <div
                         style={{
-                          
                           display: "flex",
                           justifyContent: isLargeScreen
                             ? "flex-start"
