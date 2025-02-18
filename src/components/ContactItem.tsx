@@ -14,7 +14,6 @@ const ContactItem = ({
   type,
   value,
   formattedValue,
-  icon,
   storageKey,
 }: ContactItemProps) => {
   const [isVisible, setVisible] = useState(false);
