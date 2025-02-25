@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   Anchor,
   Card,
@@ -13,12 +13,17 @@ import {
 } from "@mantine/core";
 import picture from "../../assets/efire Background Removed.png";
 import EmailContact from "../EmailContact";
+import TeethGlint from "../Landing Page/TeethGlint"; // Import the new component
 import classes from "./Landing-Page.module.css";
 
 export function LandingPage() {
   const { colorScheme } = useMantineColorScheme();
   const pageURL = "https://eitans.website/";
+  const [showGlint, setShowGlint] = useState(false);
+  const previousColorScheme = useRef(colorScheme);
+  const hasSwitchedToDark = useRef(false);
 
+  // Custom hook for media queries
   function useMediaQuery(query: string) {
     const [matches, setMatches] = useState(false);
 
@@ -34,6 +39,29 @@ export function LandingPage() {
 
     return matches;
   }
+
+  // Track dark mode changes and trigger glint animation
+  useEffect(() => {
+    // If switching to dark mode for the first time
+    if (
+      colorScheme === "dark" &&
+      previousColorScheme.current === "light" &&
+      !hasSwitchedToDark.current
+    ) {
+      setShowGlint(true);
+      hasSwitchedToDark.current = true;
+
+      // Hide glint after animation completes
+      const timer = setTimeout(() => {
+        setShowGlint(false);
+      }, 1200); // Animation duration for sequential glints
+
+      return () => clearTimeout(timer);
+    }
+
+    previousColorScheme.current = colorScheme;
+  }, [colorScheme]);
+
   const isSmallScreen = useMediaQuery("(max-width: 576px)");
   const isLargeScreen = useMediaQuery("(min-width: 768px)");
 
@@ -62,7 +90,7 @@ export function LandingPage() {
               >
                 <Grid gutter="sm" align="center">
                   <Grid.Col span={{ base: 12, sm: 6 }}>
-                    <Center>
+                    <Center style={{ position: "relative" }}>
                       <Image
                         src={picture}
                         className="picture"
@@ -76,6 +104,9 @@ export function LandingPage() {
                           },
                         }}
                       />
+
+                      {/* Use the new TeethGlint component */}
+                      <TeethGlint show={showGlint} />
                     </Center>
                   </Grid.Col>
                   <Grid.Col span={{ base: 12, sm: 6 }}>
