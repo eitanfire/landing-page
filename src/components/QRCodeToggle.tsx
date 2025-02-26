@@ -11,7 +11,7 @@ export function QRCodeToggle({ url }: QRCodeToggleProps) {
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(url);
-    alert("Link copied to clipboard!");
+    alert("Website URL copied to clipboard!");
   };
 
   return (
