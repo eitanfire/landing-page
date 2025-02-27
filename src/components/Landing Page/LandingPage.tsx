@@ -106,7 +106,7 @@ export function LandingPage() {
                       />
 
                       {/* Use the new TeethGlint component */}
-                      <TeethGlint show={showGlint} />
+                      <TeethGlint show={showGlint} theme={colorScheme} />
                     </Center>
                   </Grid.Col>
                   <Grid.Col span={{ base: 12, sm: 6 }}>

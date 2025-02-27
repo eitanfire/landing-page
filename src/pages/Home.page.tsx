@@ -1,4 +1,4 @@
-import { useMantineColorScheme, Flex } from "@mantine/core";
+import { useMantineColorScheme, Flex, Center } from "@mantine/core";
 import { ColorSchemeToggle } from "../components/ColorSchemeToggle/ColorSchemeToggle";
 import { LandingPage } from "../components/Landing Page/LandingPage";
 import { QRCodeToggle } from "../components/QRCodeToggle";
@@ -18,8 +18,7 @@ export function HomePage() {
         <ColorSchemeToggle />
         <QRCodeToggle url={pageURL} />
       </Flex>
-
-      <LandingPage />
+        <LandingPage />
     </div>
   );
 }

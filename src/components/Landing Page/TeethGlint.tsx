@@ -1,12 +1,27 @@
-// TeethGlint.tsx
 import { FC } from "react";
-
+import { useState, useEffect } from "react";
 interface TeethGlintProps {
   show: boolean;
+  theme: string;
 }
 
-export const TeethGlint: FC<TeethGlintProps> = ({ show }) => {
-  if (!show) return null;
+export const TeethGlint: FC<TeethGlintProps> = ({ show, theme }) => {
+  const [visible, setVisible] = useState(show);
+
+  useEffect(() => {
+    if (!show) {
+      setVisible(false);
+      return;
+    }
+
+    // Show glint for a fixed duration to prevent it from getting stuck
+    setVisible(true);
+    const timeout = setTimeout(() => setVisible(false), 400);
+
+    return () => clearTimeout(timeout);
+  }, [show, theme]); // Reset when `show` or `theme` changes
+
+  if (!visible) return null;
 
   return (
     <div
