@@ -1,7 +1,8 @@
-import { useMantineColorScheme, Flex, Center } from "@mantine/core";
+import { useMantineColorScheme, Flex, Image } from "@mantine/core";
 import { ColorSchemeToggle } from "../components/ColorSchemeToggle/ColorSchemeToggle";
 import { LandingPage } from "../components/Landing Page/LandingPage";
 import { QRCodeToggle } from "../components/QRCodeToggle";
+import TL from "../assets/TL.svg"
 
 export function HomePage() {
   const { colorScheme } = useMantineColorScheme();
