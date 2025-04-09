@@ -2,6 +2,7 @@ import { useMantineColorScheme, Flex, Image } from "@mantine/core";
 import { ColorSchemeToggle } from "../components/ColorSchemeToggle/ColorSchemeToggle";
 import { LandingPage } from "../components/Landing Page/LandingPage";
 import { QRCodeToggle } from "../components/QRCodeToggle";
+import BoulderJS from "@/components/BoulderJS";
 
 export function HomePage() {
   const { colorScheme } = useMantineColorScheme();
@@ -18,7 +19,8 @@ export function HomePage() {
         <ColorSchemeToggle />
         <QRCodeToggle url={pageURL} />
       </Flex>
-        <LandingPage />
+      <LandingPage />
+      {/* <BoulderJS /> */}
     </div>
   );
 }

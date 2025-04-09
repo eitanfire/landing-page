@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import picture from "../../assets/efire Background Removed.png";
 import EmailContact from "../EmailContact";
-import TeethGlint from "../Landing Page/TeethGlint"; // Import the new component
+import TeethGlint from "../Landing Page/TeethGlint";
 import classes from "./Landing-Page.module.css";
 
 export function LandingPage() {
@@ -65,8 +65,17 @@ export function LandingPage() {
   const isSmallScreen = useMediaQuery("(max-width: 576px)");
   const isLargeScreen = useMediaQuery("(min-width: 768px)");
 
+  // Handle keyboard navigation for links group
+  const handleLinkKeyDown = (e: React.KeyboardEvent, href: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      window.open(href, "_blank", "noopener noreferrer");
+    }
+  };
+
   return (
-    <div
+    <main
+      role="main"
+      aria-label="Personal portfolio landing page"
       style={{
         backgroundColor: colorScheme === "dark" ? "#1A1B1E" : "#f0f0f0",
         minHeight: isSmallScreen ? "80dvh" : isLargeScreen ? "60dvh" : "80dvh",
@@ -97,6 +106,8 @@ export function LandingPage() {
                         radius="90%"
                         fit="contain"
                         w={{ base: "50%", sm: "70%" }}
+                        alt="Eitan Fire portrait"
+                        aria-labelledby="profile-name"
                         styles={{
                           root: {
                             backgroundColor:
@@ -105,8 +116,11 @@ export function LandingPage() {
                         }}
                       />
 
-                      {/* Use the new TeethGlint component */}
-                      <TeethGlint show={showGlint} theme={colorScheme} />
+                      <TeethGlint
+                        show={showGlint}
+                        theme={colorScheme}
+                        aria-hidden={!showGlint}
+                      />
                     </Center>
                   </Grid.Col>
                   <Grid.Col span={{ base: 12, sm: 6 }}>
@@ -117,6 +131,7 @@ export function LandingPage() {
                       }}
                     >
                       <Title
+                        id="profile-name"
                         ta={{ base: "center", sm: "left" }}
                         size="2.5rem"
                         style={{
@@ -125,7 +140,11 @@ export function LandingPage() {
                       >
                         Eitan Fire
                       </Title>
-                      <Text size="xl" ta={{ base: "center", sm: "left" }}>
+                      <Text
+                        size="xl"
+                        ta={{ base: "center", sm: "left" }}
+                        role="doc-subtitle"
+                      >
                         software engineer + teacher
                       </Text>
                       <div
@@ -138,7 +157,8 @@ export function LandingPage() {
                       >
                         <EmailContact />
                       </div>
-                      <div
+                      <nav
+                        aria-label="Social media and projects links"
                         style={{
                           marginTop: "1rem",
                           display: "flex",
@@ -153,14 +173,17 @@ export function LandingPage() {
                           {
                             href: "https://github.com/eitanfire",
                             label: "GitHub",
+                            ariaLabel: "Visit Eitan's GitHub profile",
                           },
                           {
                             href: "https://www.linkedin.com/in/eitanfire/",
                             label: "LinkedIn",
+                            ariaLabel: "Connect with Eitan on LinkedIn",
                           },
                           {
                             href: "https://projects.eitans.website/",
                             label: "Projects",
+                            ariaLabel: "View Eitan's portfolio projects",
                           },
                         ].map((link) => (
                           <Anchor
@@ -169,11 +192,15 @@ export function LandingPage() {
                             target="_blank"
                             underline="hover"
                             size="lg"
+                            rel="noopener noreferrer"
+                            aria-label={link.ariaLabel}
+                            onKeyDown={(e) => handleLinkKeyDown(e, link.href)}
+                            tabIndex={0}
                           >
                             {link.label}
                           </Anchor>
                         ))}
-                      </div>
+                      </nav>
                     </div>
                   </Grid.Col>
                 </Grid>
@@ -182,6 +209,6 @@ export function LandingPage() {
           </Grid.Col>
         </Grid>
       </Container>
-    </div>
+    </main>
   );
 }
