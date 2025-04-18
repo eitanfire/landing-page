@@ -14,12 +14,11 @@ export const TeethGlint: FC<TeethGlintProps> = ({ show, theme }) => {
       return;
     }
 
-    // Show glint for a fixed duration to prevent it from getting stuck
     setVisible(true);
     const timeout = setTimeout(() => setVisible(false), 400);
 
     return () => clearTimeout(timeout);
-  }, [show, theme]); // Reset when `show` or `theme` changes
+  }, [show, theme]);
 
   if (!visible) return null;
 
@@ -110,7 +109,6 @@ const GlintPoint: FC<GlintPointProps> = ({ cx, cy, size, delay, duration }) => {
         />
       </circle>
 
-      {/* Vertical rays (top and bottom) */}
       <line
         x1={cx}
         y1={cy - 2}
@@ -159,7 +157,6 @@ const GlintPoint: FC<GlintPointProps> = ({ cx, cy, size, delay, duration }) => {
         />
       </line>
 
-      {/* Horizontal rays (left and right) */}
       <line
         x1={cx - 2}
         y1={cy}
@@ -297,7 +294,6 @@ const DiagonalRays: FC<DiagonalRaysProps> = ({
         />
       </line>
 
-      {/* NE diagonal */}
       <line
         x1={cx + 2}
         y1={cy - 2}
@@ -329,7 +325,6 @@ const DiagonalRays: FC<DiagonalRaysProps> = ({
         />
       </line>
 
-      {/* SE diagonal */}
       <line
         x1={cx + 2}
         y1={cy + 2}
