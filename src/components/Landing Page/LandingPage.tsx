@@ -51,10 +51,9 @@ export function LandingPage() {
       setShowGlint(true);
       hasSwitchedToDark.current = true;
 
-      // Hide glint after animation completes
       const timer = setTimeout(() => {
         setShowGlint(false);
-      }, 1200); // Animation duration for sequential glints
+      }, 1200);
 
       return () => clearTimeout(timer);
     }
@@ -65,7 +64,6 @@ export function LandingPage() {
   const isSmallScreen = useMediaQuery("(max-width: 576px)");
   const isLargeScreen = useMediaQuery("(min-width: 768px)");
 
-  // Handle keyboard navigation for links group
   const handleLinkKeyDown = (e: React.KeyboardEvent, href: string) => {
     if (e.key === "Enter" || e.key === " ") {
       window.open(href, "_blank", "noopener noreferrer");
