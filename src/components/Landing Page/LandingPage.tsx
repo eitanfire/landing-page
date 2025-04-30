@@ -23,7 +23,6 @@ export function LandingPage() {
   const previousColorScheme = useRef(colorScheme);
   const hasSwitchedToDark = useRef(false);
 
-  // Custom hook for media queries
   function useMediaQuery(query: string) {
     const [matches, setMatches] = useState(false);
 
@@ -40,9 +39,7 @@ export function LandingPage() {
     return matches;
   }
 
-  // Track dark mode changes and trigger glint animation
   useEffect(() => {
-    // If switching to dark mode for the first time
     if (
       colorScheme === "dark" &&
       previousColorScheme.current === "light" &&
