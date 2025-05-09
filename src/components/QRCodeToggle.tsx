@@ -23,7 +23,6 @@ export function QRCodeToggle({ url }: QRCodeToggleProps) {
         </Button>
       </Flex>
 
-      {/* Full-Screen QR Code Modal */}
       <Modal
         opened={showQR}
         onClose={() => setShowQR(false)}
