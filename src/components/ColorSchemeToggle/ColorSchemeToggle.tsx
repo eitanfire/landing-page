@@ -25,7 +25,7 @@ export function ColorSchemeToggle() {
           color: colorScheme === 'dark' ? 'white' : 'black',
         }}
       >
-        {colorScheme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+        {colorScheme === 'dark' ? <Sun size={22} /> : <Moon size={22} />}
       </ActionIcon>
     </div>
   );
