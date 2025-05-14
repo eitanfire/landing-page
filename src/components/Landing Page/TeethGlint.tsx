@@ -91,14 +91,12 @@ interface GlintPointProps {
 }
 
 const GlintPoint: FC<GlintPointProps> = ({ cx, cy, size, delay, duration }) => {
-  // Scale factor for ray position calculation
-  const smaller = size < 3; // If second glint (which is smaller)
+  const smaller = size < 3;
   const rayLength = smaller ? 4 : 5;
   const strokeWidth = smaller ? 1.2 : 1.5;
 
   return (
     <>
-      {/* Central white dot */}
       <circle cx={cx} cy={cy} r={size} fill="white">
         <animate
           attributeName="opacity"
@@ -205,7 +203,6 @@ const GlintPoint: FC<GlintPointProps> = ({ cx, cy, size, delay, duration }) => {
         />
       </line>
 
-      {/* Diagonal rays */}
       <DiagonalRays
         cx={cx}
         cy={cy}
@@ -214,7 +211,6 @@ const GlintPoint: FC<GlintPointProps> = ({ cx, cy, size, delay, duration }) => {
         delay={delay + 0.1}
       />
 
-      {/* Subtle ring effect */}
       <circle
         cx={cx}
         cy={cy}
@@ -356,7 +352,6 @@ const DiagonalRays: FC<DiagonalRaysProps> = ({
         />
       </line>
 
-      {/* SW diagonal */}
       <line
         x1={cx - 2}
         y1={cy + 2}
