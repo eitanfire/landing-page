@@ -10,3 +10,4 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+/Users/eitan/Sites/landing-page/src/firebase.config.js
