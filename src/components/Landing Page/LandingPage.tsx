@@ -5,13 +5,12 @@ import {
   Center,
   Container,
   Grid,
-  Image,
   Paper,
   Text,
   Title,
   useMantineColorScheme,
 } from "@mantine/core";
-import picture from "../../assets/efire Background Removed.png";
+import picture from "../../assets/efire_profile_transparent_bg_img.png";
 import EmailContact from "../EmailContact";
 import TeethGlint from "../Landing Page/TeethGlint";
 import classes from "./Landing-Page.module.css";
@@ -58,8 +57,10 @@ export function LandingPage() {
     previousColorScheme.current = colorScheme;
   }, [colorScheme]);
 
-  const isSmallScreen = useMediaQuery("(max-width: 576px)");
   const isLargeScreen = useMediaQuery("(min-width: 768px)");
+  const isSmallScreen = useMediaQuery("(max-width: 576px)");
+  const portraitWidth = isLargeScreen ? 205 : 154;
+  const portraitHeight = isLargeScreen ? 205 : 154;
 
   const handleLinkKeyDown = (e: React.KeyboardEvent, href: string) => {
     if (e.key === "Enter" || e.key === " ") {
@@ -95,21 +96,35 @@ export function LandingPage() {
                 <Grid gutter="sm" align="center">
                   <Grid.Col span={{ base: 12, sm: 6 }}>
                     <Center style={{ position: "relative" }}>
-                      <Image
-                        src={picture}
-                        className="picture"
-                        radius="90%"
-                        fit="contain"
-                        w={{ base: "50%", sm: "70%" }}
-                        alt="Eitan Fire portrait"
+                      <div
                         aria-labelledby="profile-name"
-                        styles={{
-                          root: {
-                            backgroundColor:
-                              colorScheme === "dark" ? "#ccfcf4" : "#f2f2f2",
-                          },
+                        style={{
+                          backgroundColor:
+                            colorScheme === "dark" ? "#ccfcf4" : "#f2f2f2",
+                          width: portraitWidth,
+                          height: portraitHeight,
+                          borderRadius: "50%",
+                          overflow: "hidden",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
                         }}
-                      />
+                      >
+                        <img
+                          src={picture}
+                          className="picture"
+                          alt="Eitan Fire portrait"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "contain",
+                            transform: "scale(1.11)",
+                            transformOrigin: "center",
+                            borderRadius: "50%",
+                            display: "block",
+                          }}
+                        />
+                      </div>
 
                       <TeethGlint
                         show={showGlint}

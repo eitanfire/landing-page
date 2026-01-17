@@ -40,8 +40,8 @@ export const TeethGlint: FC<TeethGlintProps> = ({ show, theme }) => {
         viewBox="0 0 100 100"
         style={{
           position: "absolute",
-          top: "73%",
-          left: "56%",
+          top: "55%",
+          left: "50%",
           transform: "translate(-50%, -50%)",
         }}
       >
